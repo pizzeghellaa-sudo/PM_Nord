@@ -183,6 +183,8 @@ h3 { color: var(--ink-deep); line-height: 1.19; font-weight: 760; letter-spacing
 .solution-card:hover .solution-picture img { transform: scale(1.035); }
 .solution-picture-yellow { background: #fce775; }
 .solution-picture-yellow img { object-position: center 50%; }
+/* Il soggetto è a sinistra del centro: nei riquadri stretti il ritaglio laterale deve risparmiarlo */
+.solution-picture-left img { object-position: 35% 55%; }
 
 /* Academy */
 .section-academy { background: linear-gradient(180deg, var(--cloud), #fff); padding-top: 110px; padding-bottom: 113px; }

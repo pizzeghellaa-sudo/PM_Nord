@@ -29,7 +29,9 @@ python -m http.server 8000
   - `logo-sbm.webp` — da `sbm sistemi Topaz Gigapixel 2x - Scala copia.jpg`, un JPG ingrandito con fondo bianco. Il fondo bianco funziona solo perché la scheda è bianca: se SBM fornisce un SVG o un PNG trasparente, va preferito
   - `logo-optopol.svg` — il vettoriale ufficiale, usato così com'è
   - `academy.webp` — da `academy1.webp`, stessa immagine ricodificata a qualità 80. In alto ha una fascia bianca di 54 px, presente anche nell'originale
-  - `oculisti.webp`, `ottici.webp`, `estetica.webp` — ancora ritagli a bassa risoluzione dalle bozze grafiche, da sostituire
+  - `ottici.webp` — da `ottici.jpeg`, stessa immagine convertita in WebP a qualità 80
+  - `oculisti.webp` — da `oculisti.jpeg` (LUNA X, 1600×985), ritaglio (0, 175)–(1600, 919): proporzioni 2,15:1 come il riquadro su desktop, con lo strumento intero
+  - `estetica.webp` — da `estetica.jpeg` (1600×774), stessa immagine convertita in WebP a qualità 80
 
 ## Accoppiamenti da non rompere
 
