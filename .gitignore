@@ -1,0 +1,5 @@
+# Materiale temporaneo, escluso dal repository (vedi CLAUDE.md)
+misc/
+
+# File generati dai test nel browser
+.playwright-mcp/
