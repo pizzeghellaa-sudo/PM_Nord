@@ -46,6 +46,11 @@ python -m http.server 8000
 - I testi in grigio chiaro sono stati portati a `--muted` per raggiungere il contrasto 4,5:1; il bianco dei pulsanti primari regge solo sul gradiente scuro attuale. Prima di schiarire un colore di testo, ricontrollare il contrasto
 - Il carattere Inter non viene caricato: si usa il carattere di sistema. Caricarlo da Google Fonts trasmetterebbe l'IP dei visitatori a terzi; va eventualmente ospitato in `assets/`
 
+## Git e pubblicazione
+
+- Repository: https://github.com/pizzeghellaa-sudo/PM_Nord.git, ramo `main`. Ogni push su `main` avvia una pubblicazione su Vercel (progetto `pm_nord`)
+- **Nei messaggi di commit solo caratteri Latin-1**: le lettere accentate, «» e × vanno bene, i simboli fuori da Latin-1 no (frecce come →, emoji). Il commit `a0fd08e`, con una freccia nel messaggio, è l'unico che Vercel ha rifiutato, anche ripubblicandolo, con l'errore «Git information retrieval failed». Tutti i commit precedenti, con soli caratteri Latin-1, erano andati a buon fine. La causa è dedotta da questa corrispondenza, non confermata dal log di Vercel
+
 ## Cartella `misc/`
 
 `misc/` è un deposito di materiale temporaneo (bozze, archivi, copie di lavoro): **va ignorata**. Non leggerne i file, non usarli come riferimento, non aggiornarli e non citarli nella documentazione.
