@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    /* Lingua automatica: se la pagina non è nella lingua preferita, passa all'altra versione prima di mostrarla.
+       Vale la scelta fatta con il selettore (localStorage "pno-lang"); altrimenti la prima lingua del browser:
+       italiano → IT, qualunque altra → EN. I crawler non vengono reindirizzati, così indicizzano entrambe le pagine. */
+    (function () {
+      var page = document.documentElement.lang;
+      if (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)) return;
+      var lang;
+      try { lang = localStorage.getItem('pno-lang'); } catch (e) {}
+      if (lang !== 'it' && lang !== 'en') {
+        var first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+        lang = first.indexOf('it') === 0 ? 'it' : 'en';
+      }
+      if (lang !== page) location.replace((page === 'it' ? 'en/index.html' : '../index.html') + location.hash);
+    })();
+  </script>
+  <meta name="theme-color" content="#f8fcfd">
+  <meta name="description" content="Piemme Nord Oftalmica: ophthalmic technologies, specialist consulting, technical service and training for eye care professionals.">
+  <title>Piemme Nord Oftalmica — Seeing further</title>
+  <link rel="alternate" hreflang="it" href="../index.html">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="x-default" href="index.html">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="preload" href="../assets/hero-eye.webp" as="image">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Skip to content</a>
+
+  <!-- Sprite delle icone: ogni simbolo si richiama con <use href="#i-…"/> -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M5 19 19 5M8 5h11v11"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.3"/><path d="M2.5 20v-2.3c0-3 2.7-5.5 6.4-5.5 3.5 0 6.1 2.5 6.1 5.5V20M16 4.6a3.5 3.5 0 0 1 0 6.8m1.8 1.4c2.2.6 3.7 2.5 3.7 4.8V20"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path d="m10 2-.7 2.7-2.4 1L4.4 4.4 2.5 7.7 4.6 9.5v2.8l-2.1 1.8 1.9 3.3 2.5-1.3 2.4 1 .7 2.9h4l.7-2.9 2.4-1 2.5 1.3 1.9-3.3-2.1-1.8V9.5l2.1-1.8-1.9-3.3-2.5 1.3-2.4-1L14 2z"/><circle cx="12" cy="11" r="3"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.1 5a5.4 5.4 0 0 1 6.8-2.1l-3.3 3.3.3 2.8 2.8.3 3.1-3.1a5.4 5.4 0 0 1-6.9 6.7L8 21.6a3 3 0 0 1-4.3-4.3l9-9a5.4 5.4 0 0 1 1.4-3.3Z" transform="translate(-1 0) scale(.95)"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 10a8 8 0 0 0-14.3-4.8L3 8m0-5v5h5m-4 6a8 8 0 0 0 14.3 4.8L21 16m0 5v-5h-5"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 0 1 2-2h3m8 0h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M3.8 12s3.2-4.2 8.2-4.2 8.2 4.2 8.2 4.2-3.2 4.2-8.2 4.2S3.8 12 3.8 12Z"/><circle cx="12" cy="12" r="2.1"/></symbol>
+    <symbol id="i-glasses" viewBox="0 0 24 24"><circle cx="6.5" cy="14" r="4.5"/><circle cx="17.5" cy="14" r="4.5"/><path d="M11 13c.7-1 1.3-1 2 0M2 13l1-7m19 7-1-7"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 2 1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2Zm7 14 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M8 3H5.5A2.5 2.5 0 0 0 3 5.5c0 8.6 6.9 15.5 15.5 15.5A2.5 2.5 0 0 0 21 18.5V16l-5-2-2.5 2.4a16.4 16.4 0 0 1-5.9-5.9L10 8 8 3Z"/></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></symbol>
+  </svg>
+
+  <header class="site-header" id="testata">
+    <div class="container header-inner">
+      <a class="brand" href="#inizio" aria-label="Piemme Nord Oftalmica, back to top">
+        <img class="brand-mark" src="../assets/logo-testata.png" alt="" width="789" height="216">
+      </a>
+
+      <nav class="main-nav" id="navigazione" aria-label="Main navigation">
+        <a href="#valore" data-nav>About us</a>
+        <a href="#partner" data-nav>Partners</a>
+        <a href="#dry-eye" data-nav>Dry Eye</a>
+        <a href="#soluzioni" data-nav>Solutions</a>
+        <a href="#formazione" data-nav>Training</a>
+        <a href="#contatti" data-nav>Contact</a>
+      </nav>
+
+      <a class="button button-primary header-cta" href="#contatti">Request a consultation <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="../index.html" hreflang="it" lang="it" data-lang="it">IT</a>
+        <a href="index.html" hreflang="en" lang="en" data-lang="en" aria-current="true">EN</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu" aria-controls="navigazione" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="contenuto">
+    <section class="hero" id="inizio" aria-labelledby="hero-heading">
+      <div class="hero-halo hero-halo-one" aria-hidden="true"></div>
+      <div class="hero-halo hero-halo-two" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> Expertise beyond technology</p>
+          <h1 id="hero-heading">Seeing<br><span>further<span class="hero-dot">.</span></span></h1>
+          <p class="hero-lead">Advanced technologies, specialist expertise and training to improve quality of vision and ocular wellbeing.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#dry-eye">Discover the world of Dry Eye <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="button button-outline" href="#partner">Our technologies <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+          </div>
+          <p class="hero-footnote"><span class="small-dot"></span> A reliable partner at your side</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-image-frame"><img class="hero-image" src="../assets/hero-eye.webp" alt="" width="1188" height="1034" fetchpriority="high"></div>
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+          <span class="orbit orbit-three"></span>
+          <span class="image-cross image-cross-one">+</span>
+          <span class="image-cross image-cross-two">+</span>
+          <div class="hero-annotation">
+            <span class="annotation-mark"><svg class="icon"><use href="#i-scan"/></svg></span>
+            <span><strong>Vision at the centre</strong><small>People, experience, innovation</small></span>
+          </div>
+        </div>
+      </div>
+      <div class="container hero-bottom">
+        <span aria-hidden="true">01 — 06</span>
+        <a href="#valore">Explore the page <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></a>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <span>Specialist consulting</span>
+        <span class="trust-dot" aria-hidden="true"></span>
+        <span>Selected technologies</span>
+        <span class="trust-dot" aria-hidden="true"></span>
+        <span>Service and training</span>
+      </div>
+    </div>
+
+    <section class="section section-values" id="valore" aria-labelledby="valore-heading">
+      <div class="container">
+        <div class="section-intro section-intro-split">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> Our value</p>
+            <h2 id="valore-heading">Expertise beyond<br><span class="text-blue">technology.</span></h2>
+          </div>
+          <p class="section-description">Clinical experience, technological know-how and specialist support to help you get the most from your equipment and build an effective, valuable service.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="value-top">
+              <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#i-people"/></svg></span>
+              <span class="card-number" aria-hidden="true">01</span>
+            </div>
+            <h3>Specialist<br>consulting</h3>
+            <p>We help you choose the solution that best fits your needs.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-top">
+              <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg></span>
+              <span class="card-number" aria-hidden="true">02</span>
+            </div>
+            <h3>Selected<br>technologies</h3>
+            <p>International brands and specialist solutions for every clinical area.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-top">
+              <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg></span>
+              <span class="card-number" aria-hidden="true">03</span>
+            </div>
+            <h3>Technical<br>service</h3>
+            <p>Support, maintenance, repair and upgrades.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-top">
+              <span class="icon-circle"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+              <span class="card-number" aria-hidden="true">04</span>
+            </div>
+            <h3>Pre-owned<br>equipment</h3>
+            <p>Trade-in, appraisal and handling of pre-owned equipment with the same expertise.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-partners" id="partner" aria-labelledby="partner-heading">
+      <div class="container">
+        <div class="section-intro partners-intro">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> Our technology partners</p>
+            <h2 id="partner-heading">International excellence<br><span class="text-blue">at your side.</span></h2>
+          </div>
+          <p class="section-description">We select leading brands to offer reliable, innovative technologies that are genuinely useful in clinical practice.</p>
+        </div>
+        <div class="partners-grid">
+          <article class="partner-card">
+            <div class="partner-card-head">
+              <span class="small-label">Authorised dealer for Italy</span>
+              <span class="partner-serial" aria-hidden="true">PARTNER / 01</span>
+            </div>
+            <div class="partner-card-body">
+              <div class="partner-copy">
+                <div class="partner-logo sbm-logo">
+                  <img src="../assets/logo-sbm.webp" alt="SBM Sistemi" width="427" height="138" loading="lazy">
+                </div>
+                <h3>Ocular surface<br>and Dry Eye</h3>
+                <p>Diagnostics, analysis and treatments for the complete management of Dry Eye and the ocular surface.</p>
+                <a class="text-link" href="https://www.sbmsistemi.com/" target="_blank" rel="noopener noreferrer">Visit sbmsistemi.com<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+              </div>
+              <img class="product-image sbm-device" src="../assets/sbm-device.webp" alt="SBM ophthalmic diagnostic device" width="527" height="600" loading="lazy">
+            </div>
+          </article>
+          <article class="partner-card">
+            <div class="partner-card-head">
+              <span class="small-label">Exclusive for Northern Italy</span>
+              <span class="partner-serial" aria-hidden="true">PARTNER / 02</span>
+            </div>
+            <div class="partner-card-body">
+              <div class="partner-copy">
+                <div class="partner-logo optopol-logo">
+                  <img src="../assets/logo-optopol.svg" alt="Optopol Technology" width="460" height="98" loading="lazy">
+                </div>
+                <h3>Advanced ophthalmic<br>imaging</h3>
+                <p>OCT, angio-OCT and imaging solutions for precise, in-depth diagnosis.</p>
+                <a class="text-link" href="https://www.optopol.com/" target="_blank" rel="noopener noreferrer">Visit optopol.com<span class="visually-hidden"> (opens in a new tab)</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+              </div>
+              <img class="product-image optopol-device" src="../assets/optopol-device.webp" alt="Optopol ophthalmic imaging device" width="545" height="600" loading="lazy">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dry" id="dry-eye" aria-labelledby="dry-heading">
+      <div class="dry-visual" aria-hidden="true"><img src="../assets/dry-eye.webp" alt="" width="1892" height="816" loading="lazy"></div>
+      <div class="dry-rings" aria-hidden="true"></div>
+      <div class="container dry-container">
+        <div class="dry-content">
+          <p class="eyebrow eyebrow-light"><span class="eyebrow-rule"></span> Focus on Dry Eye</p>
+          <h2 id="dry-heading">From diagnosis<br>to <span class="text-accent">visual wellbeing.</span></h2>
+          <p>A complete pathway to understand, manage and treat Dry Eye, with advanced technology solutions and an integrated, multidisciplinary approach.</p>
+          <div class="dry-keywords">
+            <span>Diagnosis</span>
+            <span>Treatment</span>
+            <span>Wellbeing</span>
+          </div>
+          <a href="#soluzioni" class="button button-white-outline">Explore the solutions <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-solutions" id="soluzioni" aria-labelledby="soluzioni-heading">
+      <div class="container">
+        <div class="section-intro solutions-intro">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> An integrated approach</p>
+            <h2 id="soluzioni-heading">Solutions designed<br>for <span class="text-blue">every professional.</span></h2>
+          </div>
+          <p class="section-description">A single point of contact, a range of expertise and targeted technologies for every professional field.</p>
+        </div>
+        <div class="solutions-grid">
+          <article class="solution-card">
+            <div class="solution-body">
+              <span class="solution-number" aria-hidden="true">01 / SECTOR</span>
+              <span class="solution-icon"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg></span>
+              <h3>Ophthalmologists</h3>
+              <p>Advanced Dry Eye diagnosis in refractive and cataract surgery, clinical management and follow-up.</p>
+              <a class="solution-link" href="#contatti">Let's talk it over <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="solution-picture"><img src="../assets/oculisti.webp" alt="Diagnostic equipment for ophthalmology" width="1600" height="744" loading="lazy"></div>
+          </article>
+          <article class="solution-card">
+            <div class="solution-body">
+              <span class="solution-number" aria-hidden="true">02 / SECTOR</span>
+              <span class="solution-icon"><svg class="icon" aria-hidden="true"><use href="#i-glasses"/></svg></span>
+              <h3>Opticians and<br>optometrists</h3>
+              <p>Dry Eye and keratoconus screening in store, to broaden your skills and services.</p>
+              <a class="solution-link" href="#contatti">Let's talk it over <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="solution-picture solution-picture-yellow"><img src="../assets/ottici.webp" alt="Eyewear for visual wellbeing" width="1239" height="810" loading="lazy"></div>
+          </article>
+          <article class="solution-card">
+            <div class="solution-body">
+              <span class="solution-number" aria-hidden="true">03 / SECTOR</span>
+              <span class="solution-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg></span>
+              <h3>Advanced aesthetic<br>medicine</h3>
+              <p>Ocular wellbeing and treatments integrated with Dry Eye care, using high-performance, safe technologies.</p>
+              <a class="solution-link" href="#contatti">Let's talk it over <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="solution-picture solution-picture-left"><img src="../assets/estetica.webp" alt="Patient during an eye treatment" width="1600" height="774" loading="lazy"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-academy" id="formazione" aria-labelledby="academy-heading">
+      <div class="container academy-grid">
+        <div class="academy-copy">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> Piemme Academy</p>
+          <h2 id="academy-heading">Expertise grows<br>through <span class="text-blue">training.</span></h2>
+          <p class="academy-lead">Hands-on sessions, on-site demos and targeted training programmes for professionals and clinical teams.</p>
+          <ul class="check-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> On-site and on-request courses</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Hands-on training on instruments and software</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Team and one-to-one programmes</li>
+          </ul>
+          <a class="button button-primary" href="mailto:ufficio@piemmeweb.it?subject=Information%20request%20-%20Piemme%20Academy">Request information <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="academy-visual">
+          <img src="../assets/academy.webp" alt="Specialist training session on eye diagnostics" width="2024" height="808" loading="lazy">
+          <div class="academy-caption">
+            <span class="caption-icon"><svg class="icon" aria-hidden="true"><use href="#i-people"/></svg></span>
+            <span>Practical training.<br><strong>Skills that last.</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-contact" id="contatti" aria-labelledby="contatti-heading">
+      <div class="container">
+        <div class="contact-panel">
+          <span class="contact-curve contact-curve-a" aria-hidden="true"></span>
+          <span class="contact-curve contact-curve-b" aria-hidden="true"></span>
+          <div class="contact-copy">
+            <p class="eyebrow"><span class="eyebrow-rule"></span> Contact us</p>
+            <h2 id="contatti-heading">Let's talk about<br><span class="text-blue">your project.</span></h2>
+            <p>Whether you want to develop a Dry Eye service, get expert advice, request a demo or assess a pre-owned instrument, our team is here to help.</p>
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:ufficio@piemmeweb.it?subject=Consultation%20request%20-%20Piemme%20Nord%20Oftalmica">Email us <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="button button-outline" href="tel:+393357783336">Call us <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
+            </div>
+          </div>
+          <div class="contact-aside">
+            <span class="contact-aside-eyebrow">DIRECT CONTACT</span>
+            <p>We are here to help<br>shape your ideas.</p>
+            <a href="mailto:ufficio@piemmeweb.it">ufficio@piemmeweb.it <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+            <span class="contact-aside-lines" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand-col">
+          <a class="brand-footer" href="#inizio" aria-label="Piemme Nord Oftalmica, back to top">
+            <img class="footer-logo" src="../assets/logo-negativo.png" alt="" width="720" height="507" loading="lazy">
+          </a>
+        </div>
+        <div class="footer-contact-col">
+          <h2>Contact</h2>
+          <p><strong>Mauro Riva</strong> · Ophthalmic Technology Specialist<br><a href="tel:+393357783336">+39 335 7783336</a> · <a href="mailto:ufficio@piemmeweb.it">ufficio@piemmeweb.it</a></p>
+          <p><strong>Michela Pellini</strong> · Sales and Technical Service<br><a href="tel:+393898298174">+39 389 8298174</a> · <a href="mailto:service@piemmeweb.it">service@piemmeweb.it</a></p>
+        </div>
+        <div class="footer-address-col">
+          <h2>Where we are</h2>
+          <p>Operational headquarters<br>Via Bussolengo 21/A<br>37066 Sommacampagna (VR)</p>
+          <p>Registered office<br>Via Monte Pasubio 3<br>37063 Isola della Scala (VR)</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> Piemme S.r.l. · Piemme Nord Oftalmica is a trademark of Piemme S.r.l.<br>VAT no. 08574910967 · SDI code M5UXCR1</p>
+        <a href="#inizio" class="back-to-top">Back to top ↑</a>
+      </div>
+      <p class="footer-disclaimer">The piemmeweb.it website is intended solely for healthcare professionals, in accordance with the Italian Ministry of Health circular of 17/02/2010 on the advertising of medical devices.</p>
+    </div>
+  </footer>
+</body>
+</html>

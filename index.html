@@ -3,9 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    /* Lingua automatica: se la pagina non è nella lingua preferita, passa all'altra versione prima di mostrarla.
+       Vale la scelta fatta con il selettore (localStorage "pno-lang"); altrimenti la prima lingua del browser:
+       italiano → IT, qualunque altra → EN. I crawler non vengono reindirizzati, così indicizzano entrambe le pagine. */
+    (function () {
+      var page = document.documentElement.lang;
+      if (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)) return;
+      var lang;
+      try { lang = localStorage.getItem('pno-lang'); } catch (e) {}
+      if (lang !== 'it' && lang !== 'en') {
+        var first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+        lang = first.indexOf('it') === 0 ? 'it' : 'en';
+      }
+      if (lang !== page) location.replace((page === 'it' ? 'en/index.html' : '../index.html') + location.hash);
+    })();
+  </script>
   <meta name="theme-color" content="#f8fcfd">
   <meta name="description" content="Piemme Nord Oftalmica: tecnologie oftalmiche, consulenza specialistica, assistenza tecnica e formazione per i professionisti della visione.">
   <title>Piemme Nord Oftalmica — Uno sguardo più lontano</title>
+  <link rel="alternate" hreflang="it" href="index.html">
+  <link rel="alternate" hreflang="en" href="en/index.html">
+  <link rel="alternate" hreflang="x-default" href="en/index.html">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="preload" href="assets/hero-eye.webp" as="image">
   <link rel="stylesheet" href="styles.css">
@@ -48,7 +67,11 @@
       </nav>
 
       <a class="button button-primary header-cta" href="#contatti">Richiedi una consulenza <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Apri menu" aria-controls="navigazione" aria-expanded="false">
+      <nav class="lang-switch" aria-label="Lingua">
+        <a href="index.html" hreflang="it" lang="it" data-lang="it" aria-current="true">IT</a>
+        <a href="en/index.html" hreflang="en" lang="en" data-lang="en">EN</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Apri menu" data-label-open="Apri menu" data-label-close="Chiudi menu" aria-controls="navigazione" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>

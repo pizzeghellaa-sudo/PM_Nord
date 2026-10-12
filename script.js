@@ -8,6 +8,9 @@
   const progress = document.querySelector('#scroll-progress');
   const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   const year = document.querySelector('#current-year');
+  // Etichette del pulsante del menu nella lingua della pagina (attributi data-label-* in index.html ed en/index.html)
+  const labelOpen = menuButton.dataset.labelOpen || 'Apri menu';
+  const labelClose = menuButton.dataset.labelClose || 'Chiudi menu';
 
   // Breakpoint del menu mobile: deve coincidere con la media query in styles.css
   const MOBILE_NAV_MAX = 1050;
@@ -19,13 +22,13 @@
   function closeMenu() {
     mainNav.classList.remove('is-open');
     menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Apri menu');
+    menuButton.setAttribute('aria-label', labelOpen);
   }
 
   function toggleMenu() {
     const open = mainNav.classList.toggle('is-open');
     menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+    menuButton.setAttribute('aria-label', open ? labelClose : labelOpen);
   }
 
   menuButton.addEventListener('click', toggleMenu);
@@ -44,6 +47,16 @@
   window.addEventListener('resize', () => {
     if (window.innerWidth > MOBILE_NAV_MAX && mainNav.classList.contains('is-open')) closeMenu();
   }, { passive: true });
+
+  // Selettore di lingua: la scelta manuale si ricorda e vale più della lingua del browser
+  // (la legge lo script in testa a ogni pagina). Si resta sulla stessa sezione grazie all'ancora.
+  document.querySelectorAll('[data-lang]').forEach(link => {
+    link.addEventListener('click', event => {
+      try { localStorage.setItem('pno-lang', link.dataset.lang); } catch (e) { /* senza storage vale solo il link */ }
+      event.preventDefault();
+      if (link.getAttribute('aria-current') !== 'true') window.location.href = link.href + window.location.hash;
+    });
+  });
 
   let scheduled = false;
   function updateScrollUI() {
