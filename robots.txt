@@ -1,0 +1,17 @@
+# Piemme Nord Oftalmica - regole per i crawler
+#
+# Tutto il sito è aperto a motori di ricerca e assistenti AI, sia per la ricerca sia per
+# l'addestramento (scelta dell'utente, 12 ottobre 2026). Per escludere un crawler aggiungere
+# un blocco dedicato, per esempio:
+#
+#   User-agent: GPTBot
+#   Disallow: /
+#
+# Crawler AI principali: GPTBot e OAI-SearchBot (OpenAI), ClaudeBot e Claude-SearchBot
+# (Anthropic), PerplexityBot (Perplexity), Google-Extended (addestramento Gemini),
+# CCBot (Common Crawl).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.dominio-da-definire.it/sitemap.xml

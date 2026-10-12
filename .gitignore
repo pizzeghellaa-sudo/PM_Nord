@@ -6,3 +6,6 @@ misc/
 
 # Originali del cliente da cui si ricavano le immagini pubblicate: restano solo in locale (vedi CLAUDE.md)
 assets/old/
+
+# Documenti per il cliente (relazioni Word), esclusi dal repository
+docs/

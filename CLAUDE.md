@@ -46,6 +46,18 @@ python -m http.server 8000
 - I testi in grigio chiaro sono stati portati a `--muted` per raggiungere il contrasto 4,5:1; il bianco dei pulsanti primari regge solo sul gradiente scuro attuale. Prima di schiarire un colore di testo, ricontrollare il contrasto
 - Il carattere Inter non viene caricato: si usa il carattere di sistema. Caricarlo da Google Fonts trasmetterebbe l'IP dei visitatori a terzi; va eventualmente ospitato in `assets/`
 
+## SEO e indicizzazione
+
+- **Dominio segnaposto.** Tutti gli indirizzi assoluti usano `https://www.dominio-da-definire.it`: `canonical`, `hreflang`, Open Graph e JSON-LD in entrambe le pagine, `sitemap.xml`, la riga `Sitemap:` di `robots.txt`, `llms.txt`. Finché non viene sostituito, motori di ricerca e anteprime social non possono usarli. Quando il dominio è deciso, sostituirlo ovunque con un solo cerca-e-sostituisci, poi controllare che non resti nessuna occorrenza: `grep -rl "dominio-da-definire" --exclude-dir=.git .`
+- **URL canonici**: `/` per l'italiano e `/en/` per l'inglese, non `index.html`. Il selettore di lingua resta su `index.html` relativo, perché deve funzionare anche aprendo i file dal disco
+- **In testa a ogni pagina**: `title`, `description`, `canonical`, `hreflang` (it, en, x-default → EN), Open Graph e Twitter card, `apple-touch-icon`, JSON-LD (`Organization`, `WebSite`, `WebPage`). Vanno tenuti allineati nelle due lingue. I dati del JSON-LD (contatti, indirizzo, partita IVA) devono coincidere con quelli visibili nel piè di pagina: se cambiano i recapiti, cambiano in tre punti per pagina
+- **File alla radice**: `robots.txt` (tutto aperto, anche ai crawler AI, scelta dell'utente del 12 ottobre 2026), `sitemap.xml` (le due pagine con le alternative di lingua; aggiornare `lastmod` quando cambia il contenuto), `llms.txt` (riassunto per gli assistenti AI, in inglese e italiano: va aggiornato se cambiano servizi, marchi o contatti)
+- **Immagini**: `assets/og-image.jpg` (1200×630, anteprima nei social: foto della hero con il logo a colori) e `assets/apple-touch-icon.png` (180×180, occhio del logo su fondo bianco)
+- **Parole chiave di riferimento** (ipotesi, senza dati di volume: verificarle in Search Console dopo la pubblicazione):
+  - IT: strumentazione oftalmica, strumenti oftalmici, distributore Nord Italia, diagnosi Dry Eye / occhio secco, analisi della superficie oculare, OCT, angio-OCT, SBM Sistemi, Optopol, OS1000, LUNA X, REVO HR, assistenza tecnica, usato, formazione oftalmica, Verona, Sommacampagna
+  - EN: ophthalmic equipment distributor Northern Italy, dry eye diagnosis, ocular surface analysis, OCT and angio-OCT, SBM Sistemi and Optopol dealer, ophthalmic equipment service, ophthalmic training
+- I nomi degli strumenti (OS1000, LUNA X, REVO HR) sono quelli visibili nelle foto del sito: non aggiungerne altri senza conferma del cliente
+
 ## Git e pubblicazione
 
 - Repository: https://github.com/pizzeghellaa-sudo/PM_Nord.git, ramo `main`. Ogni push su `main` avvia una pubblicazione su Vercel (progetto `pm_nord`)
@@ -62,6 +74,8 @@ Dal `README.md`, da verificare prima di pubblicare:
 - il logo ufficiale è stato fornito dal cliente il 12 ottobre 2026 ed è in uso in testata, nel piè di pagina e come favicon. Contiene lo slogan in italiano, quindi compare in italiano anche nella pagina inglese: se il cliente fornisce una versione inglese, va usata in `en/index.html`
 - le immagini sono state sostituite con le versioni ad alta risoluzione fornite dal cliente (vedi `assets/` sopra)
 - nessun modulo raccoglie dati e non ci sono cookie né tracciamento: i contatti sono link `mailto:` e `tel:`. L'unico dato salvato nel browser è la lingua scelta con il selettore (`localStorage`, chiave `pno-lang`), una preferenza chiesta dal visitatore. Introdurre un form o un'analitica richiede la revisione dei testi privacy e cookie
-- i link `hreflang` in testa alle due pagine sono relativi: quando si conosce il dominio definitivo vanno resi assoluti (`https://…/index.html`, `https://…/en/index.html`), come richiedono i motori di ricerca
+- il dominio è un segnaposto (`https://www.dominio-da-definire.it`, vedi «SEO e indicizzazione»): va sostituito prima della pubblicazione definitiva
+- dopo la pubblicazione: verificare il dominio in Google Search Console e Bing Webmaster Tools e inviare `sitemap.xml`; creare il profilo Google Business della sede di Sommacampagna; chiedere a SBM Sistemi e Optopol di elencare il rivenditore sui loro siti
+- le aggiunte di parole chiave nei testi visibili (12 ottobre 2026) vanno approvate dal cliente
 - il testo inglese di `en/index.html` va fatto rivedere dal cliente
 - dati societari, recapiti e link esterni (sbmsistemi.com, optopol.com) vanno confermati dal cliente

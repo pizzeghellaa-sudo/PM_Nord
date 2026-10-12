@@ -21,6 +21,7 @@ Quindi aprire `http://localhost:8000`.
 - CTA per email e telefono (`mailto:` / `tel:`) e link ai siti dei partner
 - Layout ottimizzato per desktop, tablet e smartphone
 - Rispetto dell'impostazione di sistema «riduci movimento»
+- Ottimizzazione per motori di ricerca e assistenti AI: titoli e descrizioni con parole chiave, URL canonici, `hreflang`, anteprime social (Open Graph), dati strutturati JSON-LD, `robots.txt`, `sitemap.xml` e `llms.txt`
 
 ## Struttura
 
@@ -34,7 +35,8 @@ Quindi aprire `http://localhost:8000`.
 
 - Il **logo ufficiale** (fornito il 12 ottobre 2026) è in uso in testata, nel piè di pagina e come favicon. Se disponibile, una versione SVG darebbe un risultato più nitido dei PNG attuali.
 - Far rivedere al cliente il testo inglese, in particolare la dicitura legale del piè di pagina.
-- Rendere assoluti i link `hreflang` quando si conosce il dominio definitivo.
+- Sostituire il dominio segnaposto `https://www.dominio-da-definire.it` con quello definitivo, in tutti i file (vedi `CLAUDE.md`).
+- Dopo la pubblicazione: verificare il sito in Google Search Console e Bing Webmaster Tools e inviare `sitemap.xml`; controllare i dati strutturati con il Rich Results Test di Google; creare il profilo Google Business della sede.
 - Revisionare contenuti e dati societari, inclusi riferimenti privacy/cookie (nessun tracking o cookie è implementato nel prototipo).
 - Confermare destinazioni e autorizzazioni d'uso di tutti i collegamenti esterni.
 
