@@ -3,3 +3,6 @@ misc/
 
 # File generati dai test nel browser
 .playwright-mcp/
+
+# Originali del cliente da cui si ricavano le immagini pubblicate: restano solo in locale (vedi CLAUDE.md)
+assets/old/
