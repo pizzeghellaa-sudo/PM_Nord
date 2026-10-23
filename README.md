@@ -35,7 +35,6 @@ Quindi aprire `http://localhost:8000`.
 
 - Il **logo ufficiale** (fornito il 12 ottobre 2026) è in uso in testata, nel piè di pagina e come favicon. Se disponibile, una versione SVG darebbe un risultato più nitido dei PNG attuali.
 - Far rivedere al cliente il testo inglese, in particolare la dicitura legale del piè di pagina.
-- Sostituire il dominio segnaposto `https://www.dominio-da-definire.it` con quello definitivo, in tutti i file (vedi `CLAUDE.md`).
 - Dopo la pubblicazione: verificare il sito in Google Search Console e Bing Webmaster Tools e inviare `sitemap.xml`; controllare i dati strutturati con il Rich Results Test di Google; creare il profilo Google Business della sede.
 - Revisionare contenuti e dati societari, inclusi riferimenti privacy/cookie (nessun tracking o cookie è implementato nel prototipo).
 - Confermare destinazioni e autorizzazioni d'uso di tutti i collegamenti esterni.

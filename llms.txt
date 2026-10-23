@@ -1,28 +1,28 @@
 # Piemme Nord Oftalmica
 
-> Piemme Nord Oftalmica, a brand of Piemme S.r.l., distributes and services ophthalmic equipment for eye care professionals in Northern Italy. It is an authorised dealer for Italy of SBM Sistemi (ocular surface and Dry Eye diagnostics, instruments such as the OS1000 and LUNA X) and the exclusive distributor for Northern Italy of Optopol Technology (OCT such as the REVO HR, angio-OCT and ophthalmic imaging).
+> Piemme Nord Oftalmica, a brand of Piemme S.r.l., distributes and services ophthalmic equipment for eye care professionals in Northern Italy. It is a reseller in Italy of SBM Sistemi (ocular surface and dry eye disease diagnostics, instruments such as the OS1000 and LUNA X) and the exclusive partner in Northern Italy of Optopol Technology (OCT systems such as the REVO HR, OCT angiography (OCTA) and ophthalmic imaging).
 
 The website is intended for healthcare professionals. It is available in Italian and English.
 
 ## Services
 
-- Specialist consulting on choosing ophthalmic technologies
+- Expert advice on choosing ophthalmic technologies
 - Sale of selected ophthalmic equipment (SBM Sistemi, Optopol)
-- Technical service: support, maintenance, repair and upgrades
-- Pre-owned professional equipment: trade-in, appraisal and handling
-- Training (Piemme Academy): on-site courses, demos, hands-on training on instruments and software
+- Technical support: support, maintenance, repairs and updates
+- Pre-owned professional equipment: take-back, valuation and management
+- Training (Piemme Academy): courses at our premises and upon request, demonstrations, hands-on training in the use of equipment and software
 
 ## Who it serves
 
-- Ophthalmologists: advanced Dry Eye diagnosis and OCT imaging in refractive and cataract surgery, clinical management and follow-up
-- Opticians and optometrists: Dry Eye and keratoconus screening in store
-- Advanced aesthetic medicine: ocular wellbeing and treatments integrated with Dry Eye care
+- Ophthalmologists: advanced dry eye diagnostics and OCT imaging to support refractive and cataract surgery, clinical management and follow-up
+- Opticians and optometrists: dry eye and keratoconus screening in optical retail settings
+- Advanced aesthetic medicine: ocular wellbeing and treatments integrated into dry eye care
 
 ## Contact
 
 - Mauro Riva, Ophthalmic Technology Specialist: +39 335 7783336, ufficio@piemmeweb.it
-- Michela Pellini, Sales and Technical Service: +39 389 8298174, service@piemmeweb.it
-- Operational headquarters: Via Bussolengo 21/A, 37066 Sommacampagna (VR), Italy
+- Michela Pellini, Sales and Technical Support: +39 389 8298174, service@piemmeweb.it
+- Operations office: Via Bussolengo 21/A, 37066 Sommacampagna (VR), Italy
 - Registered office: Via Monte Pasubio 3, 37063 Isola della Scala (VR), Italy
 - Piemme S.r.l., VAT no. 08574910967
 
@@ -32,8 +32,8 @@ Piemme Nord Oftalmica, marchio di Piemme S.r.l., distribuisce e assiste strument
 
 ## Pages
 
-- [Italiano](https://www.dominio-da-definire.it/): landing page in Italian
-- [English](https://www.dominio-da-definire.it/en/): landing page in English
+- [Italiano](https://www.piemmeweb.it/): landing page in Italian
+- [English](https://www.piemmeweb.it/en/): landing page in English
 
 ## Partner websites
 

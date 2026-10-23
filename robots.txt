@@ -14,4 +14,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dominio-da-definire.it/sitemap.xml
+Sitemap: https://www.piemmeweb.it/sitemap.xml

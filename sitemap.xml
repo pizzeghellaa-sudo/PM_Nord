@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.dominio-da-definire.it/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.dominio-da-definire.it/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.dominio-da-definire.it/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dominio-da-definire.it/en/"/>
+    <loc>https://www.piemmeweb.it/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.piemmeweb.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.piemmeweb.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.piemmeweb.it/en/"/>
   </url>
   <url>
-    <loc>https://www.dominio-da-definire.it/en/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.dominio-da-definire.it/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.dominio-da-definire.it/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dominio-da-definire.it/en/"/>
+    <loc>https://www.piemmeweb.it/en/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.piemmeweb.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.piemmeweb.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.piemmeweb.it/en/"/>
   </url>
 </urlset>

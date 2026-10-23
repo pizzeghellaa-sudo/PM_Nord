@@ -9,3 +9,6 @@ assets/old/
 
 # Documenti per il cliente (relazioni Word), esclusi dal repository
 docs/
+
+# Copia dei file pubblicabili per l'installazione su Apache (vedi CLAUDE.md)
+dist/
